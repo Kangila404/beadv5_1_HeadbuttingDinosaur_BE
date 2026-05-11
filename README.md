@@ -40,6 +40,7 @@ Client → API Gateway (JWT 검증 + 라우팅)
               ├→ Settlement Service(8085)
               ├→ Log Service       (8086)
               └→ Admin Service     (8087)
+              └→ AI Service     (8088)
 
 서비스 간 동기 통신: Internal API (REST)
 서비스 간 비동기 통신: Kafka
