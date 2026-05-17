@@ -27,7 +27,7 @@ public class OpenAiEmbeddingClient {
      * @param text 임베딩할 텍스트
      * @return 1536차원 float[] 벡터, 실패 시 null
      */
-    @Cacheable(cacheNames = "embeddings", key = "#text", unless = "#result == null")
+    @Cacheable(cacheNames = "embeddings", key = "#text", unless = "#result == null", sync = true)
     public float[] embed(String text) {
         // Feature toggle 확인
         if (!openAiProperties.isEnabled()) {
