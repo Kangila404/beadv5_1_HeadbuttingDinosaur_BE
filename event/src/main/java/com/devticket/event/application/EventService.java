@@ -189,7 +189,7 @@ public class EventService {
 
     @Cacheable(
         value = CachingConfig.EVENT_LIST,
-        key = "#request.toString() + ':' + #pageable.pageNumber + ':' + #pageable.pageSize + ':' + (#currentUserId == null ? 'anon' : #currentUserId.toString())"
+        key = "#request.toString() + ':' + #pageable.pageNumber + ':' + #pageable.pageSize + ':' + #pageable.sort.toString() + ':' + (#currentUserId == null ? 'anon' : #currentUserId.toString())"
     )
     @Transactional(readOnly = true)
     public EventListResponse getEventList(EventListRequest request, UUID currentUserId, Pageable pageable) {
